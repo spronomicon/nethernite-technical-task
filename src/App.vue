@@ -21,42 +21,7 @@
         >
           <PackageInfo @closeDialog="closeModalDialog" />
         </v-dialog>
-        <v-footer
-      dark
-      padless
-    >
-      <v-card
-        class="flex"
-        flat
-        tile
-      >
-        <v-card-title class="">
-          <strong class="subheading">Developed by Viktor Suprun</strong>
-  
-          <v-spacer></v-spacer>
-  
-          <v-btn
-            class="mx-4"
-            dark
-            icon
-            :href="contact.link"
-            target="_blank"
-          >
-            <v-icon size="24px">
-              {{ contact.icon }}
-            </v-icon>
-          </v-btn>
-        </v-card-title>
-  
-        <v-card-text class="white--text text-center">
-          Repository - <a :href="contact.repo" target="_blank" class="repository"><strong>https://github.com/spronomicon/nethernite-technical-task</strong></a>
-        </v-card-text>
-        
-        <v-card-text class="py-2 white--text text-center">
-          {{ new Date().getFullYear() }} for <strong>Nethernite</strong>
-        </v-card-text>
-      </v-card>
-    </v-footer>
+        <Footer />
       </v-main>
       
     </v-theme-provider>
@@ -67,6 +32,7 @@
 import ItemsList from "./components/ItemsList";
 import PackageInfo from "./components/PackageInfo";
 import Pagination from "./components/Pagination";
+import Footer from "./components/Footer";
 import { eventBus } from "./main";
 
 export default {
@@ -75,15 +41,11 @@ export default {
     ItemsList,
     PackageInfo,
     Pagination,
+    Footer,
   },
   data() {
     return {
       isOpenModalDialog: false,
-      contact: { 
-        icon:'mdi-linkedin',
-        link:'https://www.linkedin.com/in/viktor-suprun-885427191',
-        repo:'https://github.com/spronomicon/nethernite-technical-task',
-        },
     };
   },
   methods: {
@@ -111,7 +73,7 @@ export default {
   .v-main {
     max-width: 1280px;
     width: 100%;
-    margin: 20px auto;
+    margin: 40px auto 0px;
 
     .search-container {
       max-width: 600px;
@@ -134,9 +96,6 @@ export default {
       width: 100%;
     }
 
-    .repository{
-      color: #fff;
-    }
   }
 }
 </style>
