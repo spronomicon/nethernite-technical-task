@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-card-title class="text-h4">
-      {{ packageInfo.name }}
+      {{ packageInfo.name }} (v{{packageInfo.version}})
     </v-card-title>
     <v-card-subtitle class="text-h6">
       {{ author }}
